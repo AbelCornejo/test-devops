@@ -3,29 +3,18 @@ version: 0.2
 phases:
   install:
     commands:
-      - echo "Iniciando build..."
+      - echo "Iniciando build"
   build:
     commands:
-      - echo "Empaquetando aplicación..."
+      - echo "Empaquetando aplicación"
       - zip -r app.zip *
   post_build:
     commands:
-      - echo "Subiendo app.zip a S3: $S3_BUCKET"
+      - echo "Subiendo app.zip a S3"
       - aws s3 cp app.zip s3://$S3_BUCKET/app.zip
-      - echo "Enviando comando SSM a la instancia $INSTANCE_ID"
+      - echo "Enviando comando SSM a la instancia"
       - >
-        aws ssm send-command
-        --instance-ids $INSTANCE_ID
-        --document-name "AWS-RunShellScript"
-        --comment "Desplegando web desde CodeBuild"
-        --parameters 'commands=[
-          "aws s3 cp s3://'"$S3_BUCKET"'/app.zip /tmp/app.zip",
-          "sudo unzip -o /tmp/app.zip -d /var/www/html",
-          "sudo chown -R www-data:www-data /var/www/html || true",
-          "sudo chown -R apache:apache /var/www/html || true",
-          "if sudo systemctl is-active httpd >/dev/null 2>&1; then sudo systemctl restart httpd; elif sudo systemctl is-active apache2 >/dev/null 2>&1; then sudo systemctl restart apache2; fi"
-        ]'
-        --timeout-seconds 600
+        aws ssm send-command --instance-ids $INSTANCE_ID --document-name "AWS-RunShellScript" --comment "Desplegando web" --parameters 'commands=["aws s3 cp s3://'"$S3_BUCKET"'/app.zip /tmp/app.zip","sudo unzip -o /tmp/app.zip -d /var/www/html","sudo chown -R www-data:www-data /var/www/html || true","sudo chown -R apache:apache /var/www/html || true","if sudo systemctl is-active httpd >/dev/null 2>&1; then sudo systemctl restart httpd; elif sudo systemctl is-active apache2 >/dev/null 2>&1; then sudo systemctl restart apache2; fi"]' --timeout-seconds 600
 
 artifacts:
   files:
