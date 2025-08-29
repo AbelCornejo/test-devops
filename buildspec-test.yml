@@ -1,0 +1,14 @@
+version: 0.2
+phases:
+  install:
+    commands:
+      - echo "Iniciando Test"
+  build:
+    commands:
+      - echo "Verificando archivos de la web..."
+      - test -f index.html || exit 1
+      - echo "Test completado exitosamente"
+artifacts:
+  files:
+    - '**/*'
+
