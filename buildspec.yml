@@ -1,14 +1,15 @@
- - echo "📦 Empaquetando aplicación..."
-      - zip -r app.zip *
-  post_build:
+version: 0.2
+
+phases:
+  install:
     commands:
-      - echo "🚀 Enviando a EC2 con SSM..."
-      - aws s3 cp app.zip s3://NOMBRE_DE_TU_BUCKET/app.zip
-      - aws ssm send-command \
-          --targets "Key=instanceIds,Values=EC2_INSTANCE_ID" \
-          --document-name "AWS-RunShellScript" \
-          --comment "Desplegando web" \
-          --parameters 'commands=["aws s3 cp s3://NOMBRE_DE_TU_BUCKET/app.zip /tmp/app.zip","unzip -o /tmp/app.zip -d /var/www/html","sudo systemct
-~
-~
+      - echo "Instalando dependencias si fueran necesarias"
+  build:
+    commands:
+      - echo "Compilando la aplicación"
+      - echo "Copiando archivos al directorio de salida"
+
+artifacts:
+  files:
+    - '**/*'
 
