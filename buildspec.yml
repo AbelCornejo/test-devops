@@ -3,19 +3,15 @@ version: 0.2
 phases:
   install:
     commands:
-      - echo "Instalando dependencias (si las hubiera)"
+      - echo "Iniciando Build"
   build:
     commands:
-      - echo "Contenido del directorio antes de zip"
-      - ls -la
-      - echo "Empaquetando aplicación"
+      - echo "Empaquetando aplicación..."
       - zip -r app.zip *
-      - echo "Contenido del zip para debug"
-      - unzip -l app.zip
   post_build:
     commands:
-      - echo "Verificando que app.zip fue generado"
-      - test -f app.zip || exit 1
+      - echo "Subiendo app.zip a S3"
+      - aws s3 cp app.zip s3://$S3_BUCKET/app.zip
 artifacts:
   files:
-    - app.zip
+    - '**/*'
