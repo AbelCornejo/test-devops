@@ -9,12 +9,13 @@ phases:
       - mkdir -p /tmp/app
       - aws s3 cp s3://$S3_BUCKET/app.zip /tmp/app/app.zip
       - unzip -o /tmp/app/app.zip -d /tmp/app/
-      - echo "verificando descomprension exitosa"
+      - echo "verificando descompresión exitosa"
       - test -f /tmp/app/index.html || exit 1
-
+      - echo "Contenido de index.html:"
+      - cat /tmp/app/index.html  # para debug
 post_build:
   commands: 
-    - echo "aplicando deploy a ec2 via SSM"
+    - echo "Aplicando deploy a EC2 vía SSM"
     - |
       aws ssm send-command \
         --instance-ids $INSTANCE_ID \
@@ -25,10 +26,7 @@ post_build:
           "sudo chown -R www-data:www-data /var/www/html/ || true",
           "if sudo systemctl is-active apache2 >/dev/null 2>&1; then sudo systemctl restart apache2; elif sudo systemctl is-active httpd >/dev/null 2>&1; then sudo systemctl restart httpd; fi"
           ]'  \
-
-          --timeout-seconds 600
-
+        --timeout-seconds 600
 artifacts:
   files:
     - '**/*'
-

@@ -10,9 +10,10 @@ phases:
       - zip -r app.zip *
   post_build:
     commands:
-      - echo "Subiendo app.zip a S3"
+      - echo "Verificando que app.zip fue generado"
+      - test -f app.zip || exit 1
+      - echo "Subiendo app.zip a S3 solo si todo está correcto"
       - aws s3 cp app.zip s3://$S3_BUCKET/app.zip
 artifacts:
   files:
     - '**/*'
-
