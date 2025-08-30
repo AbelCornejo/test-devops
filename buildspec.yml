@@ -1,3 +1,5 @@
+version: 0.2
+
 phases:
   install:
     commands:
@@ -10,6 +12,7 @@ phases:
     commands:
       - echo "Subiendo app.zip a S3"
       - aws s3 cp app.zip s3://$S3_BUCKET/app.zip
+
 artifacts:
   files:
     - '**/*'
