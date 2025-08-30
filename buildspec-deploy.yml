@@ -1,4 +1,5 @@
 version: 0.2
+
 phases:
   install:
     commands:
@@ -8,11 +9,11 @@ phases:
       - echo "Desplegando app a EC2"
       - mkdir -p /tmp/app
       - aws s3 cp s3://$S3_BUCKET/app.zip /tmp/app/app.zip
+      - echo "Contenido del zip que llega a EC2:"
+      - unzip -l /tmp/app/app.zip
       - unzip -o /tmp/app/app.zip -d /tmp/app/
-      - echo "verificando descompresión exitosa"
-      - test -f /tmp/app/index.html || exit 1
-      - echo "Contenido de index.html:"
-      - cat /tmp/app/index.html  # para debug
+      - echo "Contenido de index.html en EC2:"
+      - cat /tmp/app/index.html
 post_build:
   commands: 
     - echo "Aplicando deploy a EC2 vía SSM"
@@ -25,7 +26,7 @@ post_build:
           "sudo cp -r /tmp/app/* /var/www/html/",
           "sudo chown -R www-data:www-data /var/www/html/ || true",
           "if sudo systemctl is-active apache2 >/dev/null 2>&1; then sudo systemctl restart apache2; elif sudo systemctl is-active httpd >/dev/null 2>&1; then sudo systemctl restart httpd; fi"
-          ]'  \
+        ]' \
         --timeout-seconds 600
 artifacts:
   files:

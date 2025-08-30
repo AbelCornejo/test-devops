@@ -6,8 +6,12 @@ phases:
       - echo "Iniciando build"
   build:
     commands:
+      - echo "Contenido del directorio antes de zip:"
+      - ls -l
       - echo "Empaquetando aplicación"
       - zip -r app.zip *
+      - echo "Contenido del zip para debug"
+      - unzip -l app.zip
   post_build:
     commands:
       - echo "Verificando que app.zip fue generado"
