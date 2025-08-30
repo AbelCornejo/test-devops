@@ -3,10 +3,10 @@ version: 0.2
 phases:
   install:
     commands:
-      - echo "Iniciando Build"
+      - echo "Iniciando build"
   build:
     commands:
-      - echo "Empaquetando aplicación..."
+      - echo "Empaquetando aplicación"
       - zip -r app.zip *
   post_build:
     commands:
@@ -14,4 +14,4 @@ phases:
       - aws s3 cp app.zip s3://$S3_BUCKET/app.zip
 artifacts:
   files:
-    - '**/*'
+    - app.zip
