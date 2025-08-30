@@ -10,7 +10,7 @@ phases:
       - mkdir -p /tmp/app
       - aws s3 cp s3://$S3_BUCKET/app.zip /tmp/app/app.zip
       - unzip -o /tmp/app/app.zip -d /tmp/app/
-      - echo "Verificando descompresión exitosa"
+      - echo "Verificando que index.html existe"
       - test -f /tmp/app/index.html || exit 1
   post_build:
     commands:
@@ -21,11 +21,14 @@ phases:
           --document-name "AWS-RunShellScript" \
           --comment "Desplegando web" \
           --parameters 'commands=[
+            "echo Copiando archivos a /var/www/html...",
             "sudo cp -r /tmp/app/* /var/www/html/",
             "sudo chown -R www-data:www-data /var/www/html || true",
-            "if sudo systemctl is-active apache2 >/dev/null 2>&1; then sudo systemctl restart apache2; elif sudo systemctl is-active httpd >/dev/null 2>&1; then sudo systemctl restart httpd; fi"
+            "echo Reiniciando Apache...",
+            "if sudo systemctl is-active apache2 >/dev/null 2>&1; then sudo systemctl restart apache2; elif sudo systemctl is-active httpd >/dev/null 2>&1; then sudo systemctl restart httpd; fi",
+            "echo Deploy completado. Archivos en /var/www/html:",
+            "ls -l /var/www/html | head -20"
           ]' \
           --timeout-seconds 600
-artifacts:
-  files:
-    - '**/*'
+
+# No artifacts en Deploy: Deploy solo consume el artifact de Build
