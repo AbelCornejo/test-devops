@@ -5,5 +5,9 @@ phases:
       - echo "Iniciando Test"
   build:
     commands:
-      - echo "Verificando index.html"
+      - echo "Verificando archivos de la web..."
       - test -f index.html || exit 1
+      - echo "Test completado exitosamente"
+artifacts:
+  files:
+    - '**/*'
