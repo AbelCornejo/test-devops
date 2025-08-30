@@ -2,9 +2,10 @@ version: 0.2
 phases:
   install:
     commands:
-      - echo "CODEBUILD_SRC_DIR = $CODEBUILD_SRC_DIR"
-      - ls -l $CODEBUILD_SRC_DIR
-      - echo "Iniciando Test"
+    - echo "CODEBUILD_SRC_DIR=$CODEBUILD_SRC_DIR"
+    - ls -l $CODEBUILD_SRC_DIR
+    - ls -l $CODEBUILD_SRC_DIR/*
+    - echo "Iniciando Test"
   build:
     commands:
       - echo "Verificando archivos de la web..."
