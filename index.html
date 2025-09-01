@@ -4,176 +4,67 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Security Vet - Collares con GPS para mascotas</title>
-  <style>
-    body {
-      font-family: Arial, sans-serif;
-      margin: 0;
-      padding: 0;
-      background-color: #f9f9f9;
-      color: #333;
-    }
-
-    header {
-      background-color: #1b2a49;
-      color: #fff;
-      padding: 20px;
-      text-align: center;
-    }
-
-    header h1 {
-      margin: 0;
-      font-size: 2.2rem;
-    }
-
-    nav {
-      margin-top: 10px;
-    }
-
-    nav a {
-      color: #fff;
-      margin: 0 15px;
-      text-decoration: none;
-      font-weight: bold;
-    }
-
-    nav a:hover {
-      text-decoration: underline;
-    }
-
-    .hero {
-      background: url('https://images.unsplash.com/photo-1558788353-f76d92427f16') no-repeat center center/cover;
-      color: white;
-      height: 400px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      text-align: center;
-      flex-direction: column;
-    }
-
-    .hero h2 {
-      font-size: 2.5rem;
-      background: rgba(0, 0, 0, 0.6);
-      padding: 10px 20px;
-      border-radius: 10px;
-    }
-
-    .container {
-      padding: 40px 20px;
-      max-width: 1100px;
-      margin: auto;
-    }
-
-    .productos {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 20px;
-    }
-
-    .producto {
-      background: #fff;
-      padding: 20px;
-      border-radius: 12px;
-      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-      text-align: center;
-    }
-
-    .producto img {
-      max-width: 100%;
-      border-radius: 8px;
-    }
-
-    .producto h3 {
-      margin: 15px 0 10px;
-      font-size: 1.3rem;
-    }
-
-    .btn {
-      background: #1b2a49;
-      color: #fff;
-      padding: 10px 20px;
-      border: none;
-      border-radius: 8px;
-      cursor: pointer;
-      font-size: 1rem;
-    }
-
-    .btn:hover {
-      background: #2e4171;
-    }
-
-    .about {
-      background: #e6eefc;
-      padding: 40px 20px;
-      border-radius: 12px;
-      text-align: center;
-    }
-
-    footer {
-      background: #1b2a49;
-      color: #fff;
-      text-align: center;
-      padding: 15px;
-      margin-top: 40px;
-    }
-  </style>
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <header>
-    <h1>Security Vet</h1>
-    <nav>
-      <a href="#productos">Productos</a>
-      <a href="#nosotros">Nosotros</a>
-      <a href="#contacto">Contacto</a>
-    </nav>
-  </header>
+    <header>
+        <h1>
+            Security Vet
+        </h1>
+        <nav>
+            <a href="#productos">Productos</a>
+            <a href="#nosotros">Nosotros</a>
+            <a href="#contacto">Contacto</a>
+        </nav>
+    </header>
 
-  <section class="hero">
-    <h2>Protege a tu mascota con nuestros collares GPS</h2>
-    <button class="btn" onclick="alert('Gracias por tu interés, pronto habilitaremos la tienda en línea.')">Comprar ahora</button>
-  </section>
-
-  <main class="container">
-    <section id="productos">
-      <h2 style="text-align:center;">Nuestros Productos</h2>
-      <div class="productos">
-        <div class="producto">
-          <img src="https://images.unsplash.com/photo-1619983081630-b96b8c7c9e2f" alt="Collar GPS básico">
-          <h3>Collar GPS Básico</h3>
-          <p>Localiza a tu mascota en tiempo real con nuestra versión básica.</p>
-          <p><strong>S/. 199</strong></p>
-          <button class="btn">Agregar al carrito</button>
-        </div>
-        <div class="producto">
-          <img src="https://images.unsplash.com/photo-1626333127373-34fdbd061e0a" alt="Collar GPS Premium">
-          <h3>Collar GPS Premium</h3>
-          <p>Incluye monitoreo avanzado, resistencia al agua y batería de larga duración.</p>
-          <p><strong>S/. 299</strong></p>
-          <button class="btn">Agregar al carrito</button>
-        </div>
-      </div>
+    <section class="hero">
+        <h2>Protege a tu mascota con nuestros collares GPS </h2>
+        <button class="btn" id="btn-comprar">Comprar ahora</button>
     </section>
 
-    <section id="nosotros" class="about">
-      <h2>Sobre Security Vet</h2>
-      <p>En Security Vet nos preocupamos por la seguridad y bienestar de tus mascotas. 
-         Nuestros collares GPS están diseñados para que siempre tengas tranquilidad de saber dónde están.</p>
-    </section>
+    <main class="container">
+        <section class="productos">
+            <h2 class="section-title">Nuestros Productos</h2>
+            <div class="productos">
+               <div class="producto">
+                <img src="https://imagen.unsplash.com/photo-1619983081630-b96b8c7c9e2f" alt="Collar GPS Básico">
+                <h3>Collar GPS Básico</h3>
+                <p>Localiza a tu mascota en tiempo real con nuestra versión básica.</p>
+                <p class="precio">S/. 30</p>
+                <button class="btn add-cart">Agregar al carrito</button>
+               </div>
+               <div class="producto">
+                <img src="https://images.unsplash.com/photo-1626333127373-34fdbd061e0a" alt="Collar GPS Premium">
+                <h3>Collar GPS Premium</h3>
+                <p>Incluye monitoreo avanzado, resistencia al agua y batería de larga duración.</p>
+                <p class="precio">S/. 30</p>
+                <button class="btn add-cart">Agregar al carrito</button>
+               </div>
+            </div>
+        </section>
 
-    <section id="contacto">
-      <h2 style="text-align:center;">Contáctanos</h2>
-      <form style="max-width:500px; margin:auto; display:flex; flex-direction:column; gap:10px;">
-        <input type="text" placeholder="Tu nombre" required>
-        <input type="email" placeholder="Tu correo" required>
-        <textarea placeholder="Escribe tu mensaje" rows="5"></textarea>
-        <button type="submit" class="btn">Enviar</button>
-      </form>
-    </section>
-  </main>
+        <section id="nosotros" class="about">
+            <h2>Sobre Security Vet</h2>
+            <p>En Security Vet nos preocupamos por la seguridad y bienestar de tus mascotas.
+                Nuestros Collares GPS están diseñados para que siempre tengas tranquilidad de saber donde están.</p>
+        </section>
 
-  <footer>
-    <p>&copy; 2025 Security Vet. Todos los derechos reservados.</p>
-  </footer>
+        <section id="contacto">
+            <h2 class="section-title">Contáctanos</h2>
+            <form id="contact-form">
+                <input type="text" placeholder="Tu nombre" required>
+                <input type="email" placeholder="Tu correo" required>
+                <textarea placeholder="Escribe tu mensaje" rows="5"></textarea>
+                <button type="submit" class="btn">Enviar</button>
+            </form>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2025 Security Vet. Todos los derechos reservados.</p>
+    </footer>
+
+    <script src="script.js"></script>
 </body>
 </html>
-
