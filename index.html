@@ -4,12 +4,12 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Security Vet</title>
-  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <!-- HEADER -->
+  <!-- Header -->
   <header class="header">
-    <nav class="navbar">
+    <nav>
       <h1 class="logo">Security Vet</h1>
       <ul class="nav-links">
         <li><a href="#productos">Productos</a></li>
@@ -17,53 +17,42 @@
         <li><a href="#contacto">Contacto</a></li>
       </ul>
     </nav>
-    <div class="hero">
+  </header>
+
+  <!-- Hero -->
+  <section class="hero">
+    <div class="hero-text">
       <h2>Protege a tu mascota con nuestros collares GPS</h2>
       <p>Seguridad, tecnología y confianza para tu mejor amigo 🐾</p>
       <a href="#productos" class="btn">Comprar ahora</a>
     </div>
-  </header>
+  </section>
 
-  <!-- SECCIÓN PRODUCTOS -->
+  <!-- Productos -->
   <section id="productos" class="productos">
     <h2>Nuestros Productos</h2>
-    <div class="productos-container">
-      
-      <div class="card">
-        <img src="https://images.unsplash.com/photo-1622219779707-f17d3aa0f8f4?w=600" alt="Collar GPS Básico">
-        <h3>Collar GPS Básico</h3>
-        <p>Localiza a tu mascota en tiempo real con nuestra versión básica.</p>
-        <span class="precio">S/. 30</span>
-        <button class="btn agregar">Agregar al carrito</button>
-      </div>
 
-      <div class="card">
-        <img src="https://images.unsplash.com/photo-1627873908095-567aa21e63bb?w=600" alt="Collar GPS Premium">
-        <h3>Collar GPS Premium</h3>
-        <p>Monitoreo avanzado, resistencia al agua y batería de larga duración.</p>
-        <span class="precio">S/. 60</span>
-        <button class="btn agregar">Agregar al carrito</button>
-      </div>
+    <div class="card">
+      <img src="https://picsum.photos/300/200?random=1" alt="Collar GPS Básico">
+      <h3>Collar GPS Básico</h3>
+      <p>Localiza a tu mascota en tiempo real con nuestra versión básica.</p>
+      <p class="price">S/. 30</p>
+      <button class="btn" onclick="addToCart('Collar GPS Básico')">Agregar al carrito</button>
+    </div>
 
+    <div class="card">
+      <img src="https://picsum.photos/300/200?random=2" alt="Collar GPS Premium">
+      <h3>Collar GPS Premium</h3>
+      <p>Monitoreo avanzado, resistencia al agua y batería de larga duración.</p>
+      <p class="price">S/. 60</p>
+      <button class="btn" onclick="addToCart('Collar GPS Premium')">Agregar al carrito</button>
     </div>
   </section>
 
-  <!-- SECCIÓN NOSOTROS -->
-  <section id="nosotros" class="nosotros">
-    <h2>Sobre Nosotros</h2>
-    <p>Somos una empresa comprometida con el bienestar de las mascotas, ofreciendo tecnología de vanguardia para la seguridad de tu compañero fiel.</p>
-  </section>
-
-  <!-- CONTACTO -->
-  <section id="contacto" class="contacto">
-    <h2>Contacto</h2>
-    <p>📩 info@securityvet.com</p>
-    <p>📞 +51 999 888 777</p>
-  </section>
-
-  <!-- FOOTER -->
-  <footer class="footer">
-    <p>&copy; 2025 Security Vet - Todos los derechos reservados</p>
+  <!-- Footer -->
+  <footer id="contacto">
+    <p>📧 contacto@securityvet.com | 📞 +51 999 888 777</p>
+    <p>&copy; 2025 Security Vet</p>
   </footer>
 
   <script src="script.js"></script>
