@@ -3,68 +3,75 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Security Vet - Collares con GPS para mascotas</title>
-  <link rel="stylesheet" href="style.css">
+  <title>Security Vet - Collares GPS para Mascotas</title>
+  <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-    <header>
-        <h1>
-            Security Vet
-        </h1>
-        <nav>
-            <a href="#productos">Productos</a>
-            <a href="#nosotros">Nosotros</a>
-            <a href="#contacto">Contacto</a>
-        </nav>
-    </header>
+  <!-- HEADER -->
+  <header id="main-header">
+    <h1 class="logo">Security Vet</h1>
+    <nav>
+      <a href="#productos">Productos</a>
+      <a href="#nosotros">Nosotros</a>
+      <a href="#contacto">Contacto</a>
+    </nav>
+  </header>
 
-    <section class="hero">
-        <h2>Protege a tu mascota con nuestros collares GPS </h2>
-        <button class="btn" id="btn-comprar">Comprar ahora</button>
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-content">
+      <h2>Protege a tu mascota con nuestros collares GPS</h2>
+      <button class="btn" id="btn-comprar">Comprar ahora</button>
+    </div>
+  </section>
+
+  <!-- PRODUCTOS -->
+  <main class="container">
+    <section id="productos">
+      <h2 class="section-title">Nuestros Productos</h2>
+      <div class="productos">
+        <div class="producto fade-in">
+          <img src="img/collar-basic.jpg" alt="Collar GPS básico">
+          <h3>Collar GPS Básico</h3>
+          <p>Localiza a tu mascota en tiempo real con nuestra versión básica.</p>
+          <p class="precio">S/. 199</p>
+          <button class="btn add-cart">Agregar al carrito</button>
+        </div>
+        <div class="producto fade-in">
+          <img src="img/collar-premium.jpg" alt="Collar GPS Premium">
+          <h3>Collar GPS Premium</h3>
+          <p>Incluye monitoreo avanzado, resistencia al agua y batería de larga duración.</p>
+          <p class="precio">S/. 299</p>
+          <button class="btn add-cart">Agregar al carrito</button>
+        </div>
+      </div>
     </section>
 
-    <main class="container">
-        <section class="productos">
-            <h2 class="section-title">Nuestros Productos</h2>
-            <div class="productos">
-               <div class="producto">
-                <img src="https://imagen.unsplash.com/photo-1619983081630-b96b8c7c9e2f" alt="Collar GPS Básico">
-                <h3>Collar GPS Básico</h3>
-                <p>Localiza a tu mascota en tiempo real con nuestra versión básica.</p>
-                <p class="precio">S/. 30</p>
-                <button class="btn add-cart">Agregar al carrito</button>
-               </div>
-               <div class="producto">
-                <img src="https://images.unsplash.com/photo-1626333127373-34fdbd061e0a" alt="Collar GPS Premium">
-                <h3>Collar GPS Premium</h3>
-                <p>Incluye monitoreo avanzado, resistencia al agua y batería de larga duración.</p>
-                <p class="precio">S/. 30</p>
-                <button class="btn add-cart">Agregar al carrito</button>
-               </div>
-            </div>
-        </section>
+    <!-- NOSOTROS -->
+    <section id="nosotros" class="about slide-up">
+      <h2>Sobre Security Vet</h2>
+      <p>En Security Vet nos preocupamos por la seguridad y bienestar de tus mascotas. 
+         Nuestros collares GPS están diseñados para que siempre tengas tranquilidad de saber dónde están.</p>
+    </section>
 
-        <section id="nosotros" class="about">
-            <h2>Sobre Security Vet</h2>
-            <p>En Security Vet nos preocupamos por la seguridad y bienestar de tus mascotas.
-                Nuestros Collares GPS están diseñados para que siempre tengas tranquilidad de saber donde están.</p>
-        </section>
+    <!-- CONTACTO -->
+    <section id="contacto">
+      <h2 class="section-title">Contáctanos</h2>
+      <form id="contact-form">
+        <input type="text" placeholder="Tu nombre" required>
+        <input type="email" placeholder="Tu correo" required>
+        <textarea placeholder="Escribe tu mensaje" rows="5"></textarea>
+        <button type="submit" class="btn">Enviar</button>
+      </form>
+    </section>
+  </main>
 
-        <section id="contacto">
-            <h2 class="section-title">Contáctanos</h2>
-            <form id="contact-form">
-                <input type="text" placeholder="Tu nombre" required>
-                <input type="email" placeholder="Tu correo" required>
-                <textarea placeholder="Escribe tu mensaje" rows="5"></textarea>
-                <button type="submit" class="btn">Enviar</button>
-            </form>
-        </section>
-    </main>
+  <!-- FOOTER -->
+  <footer>
+    <p>&copy; 2025 Security Vet. Todos los derechos reservados.</p>
+  </footer>
 
-    <footer>
-        <p>&copy; 2025 Security Vet. Todos los derechos reservados.</p>
-    </footer>
-
-    <script src="script.js"></script>
+  <script src="js/script.js"></script>
 </body>
 </html>
+
